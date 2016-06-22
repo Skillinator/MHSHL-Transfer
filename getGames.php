@@ -13,13 +13,23 @@ if($_GET['db'] == 'v'){
 	die("ERROR: jv/varsity selection failed");
 }
 
+if($_GET['season'] > 0){
+	$season = $_GET['season'];
+}else{
+	$season = 0;
+}
+
 $conn = new mysqli('localhost', $user, $pass, $db);
 
 if($conn->connect_error){
 	die("Connection Failed: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM games WHERE TRUE;";
+if($season){
+	$query = "SELECT * FROM games WHERE season = " . $season . ";";
+}else{
+	$query = "SELECT * FROM games;";
+}
 
 $result = $conn->query($query);
 

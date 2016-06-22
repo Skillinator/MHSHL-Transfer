@@ -2,13 +2,34 @@
 
 include 'dbinfo.php';
 
-$conn = new mysqli('localhost', $user, $pass, 'varsity');
+$db;
+$season;
+
+if($_GET['db'] == 'v'){
+	$db = "varsity";
+}else if($_GET['db'] == 'j'){
+	$db = "jv";
+}else{
+	die("ERROR: jv/varsity selection failed");
+}
+
+if($_GET['season'] > 0){
+	$season = $_GET['season'];
+}else{
+	$season = 0;
+}
+
+$conn = new mysqli('localhost', $user, $pass, $db);
 
 if($conn->connect_error){
 	die("Connection Failed: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM penaltyEvents WHERE TRUE;";
+if($season){
+	$query = "SELECT * FROM penaltyEvents WHERE season = " . $season . ";";
+}else{
+	$query = "SELECT * FROM penaltyEvents;";
+}
 
 $result = $conn->query($query);
 
