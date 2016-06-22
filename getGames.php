@@ -5,9 +5,9 @@ include 'dbinfo.php';
 $db;
 $season;
 
-if($_POST['db'] == 'v'){
+if($_GET['db'] == 'v'){
 	$db = "varsity";
-}else if($_POST['db'] == 'j'){
+}else if($_GET['db'] == 'j'){
 	$db = "jv";
 }else{
 	die("ERROR: jv/varsity selection failed");
