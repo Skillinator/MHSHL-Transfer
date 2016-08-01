@@ -33,6 +33,7 @@ if($season){
 
 $result = $conn->query($query);
 
+echo "PE";
 echo '[';
 
 if($result->num_rows > 0){

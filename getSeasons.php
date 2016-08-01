@@ -23,6 +23,7 @@ $query = "SELECT * FROM seasons;";
 
 $result = $conn->query($query);
 
+echo "SN";
 echo '[';
 
 if($result->num_rows > 0){

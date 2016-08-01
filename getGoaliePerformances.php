@@ -33,6 +33,7 @@ if($season){
 
 $result = $conn->query($query);
 
+echo "GP";
 echo '[';
 
 if($result->num_rows > 0){

@@ -33,6 +33,7 @@ if($season){
 
 $result = $conn->query($query);
 
+echo "TM";
 echo '[';
 
 if($result->num_rows > 0){
