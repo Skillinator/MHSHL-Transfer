@@ -3,7 +3,7 @@
 include 'dbinfo.php';
 
 $db;
-$season;
+$majorkey;
 
 if($_GET['db'] == 'v'){
 	$db = "varsity";
@@ -13,10 +13,10 @@ if($_GET['db'] == 'v'){
 	die("ERROR: jv/varsity selection failed");
 }
 
-if($_GET['season'] > 0){
-	$season = $_GET['season'];
+if($_GET['majorkey'] > 0){
+	$majorkey = $_GET['majorkey'];
 }else{
-	$season = 0;
+	$majorkey = 0;
 }
 
 $conn = new mysqli('localhost', $user, $pass, $db);
@@ -25,8 +25,8 @@ if($conn->connect_error){
 	die("Connection Failed: " . $conn->connect_error);
 }
 
-if($season){
-	$query = "SELECT * FROM teams WHERE season = " . $season . ";";
+if($majorkey){
+	$query = "SELECT * FROM teams WHERE Major_Key = " . $majorkey . ";";
 }else{
 	$query = "SELECT * FROM teams;";
 }

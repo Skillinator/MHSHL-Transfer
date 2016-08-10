@@ -3,7 +3,7 @@
 include 'dbinfo.php';
 
 $db;
-$season;
+$majorkey;
 
 if($_GET['db'] == 'v'){
 	$db = "varsity";
@@ -11,6 +11,13 @@ if($_GET['db'] == 'v'){
 	$db = "jv";
 }else{
 	die("ERROR: jv/varsity selection failed");
+}
+
+
+if($_GET['majorkey'] > 0){
+	$majorkey = $_GET['majorkey'];
+}else{
+	$majorkey = 0;
 }
 
 $conn = new mysqli('localhost', $user, $pass, $db);
