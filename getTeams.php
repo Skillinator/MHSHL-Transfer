@@ -26,7 +26,7 @@ if($conn->connect_error){
 }
 
 if($majorkey){
-	$query = "SELECT * FROM teams WHERE Major_Key = " . $majorkey . ";";
+	$query = "SELECT * FROM teams WHERE Major_Key > " . $majorkey . ";";
 }else{
 	$query = "SELECT * FROM teams;";
 }

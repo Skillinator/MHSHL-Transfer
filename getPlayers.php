@@ -26,7 +26,7 @@ if($conn->connect_error){
 }
 
 if($majorkey){
-	$query = "SELECT * FROM players WHERE Major_Key = " . $season . ";";
+	$query = "SELECT * FROM players WHERE Major_Key > " . $majorkey . ";";
 }else{
 	$query = "SELECT * FROM players;";
 }
