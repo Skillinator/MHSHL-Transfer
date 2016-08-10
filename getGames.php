@@ -39,6 +39,7 @@ echo '[';
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
 		echo '(';
+		echo $row['Major_Key'] . ',';
 		echo $row['id'] . ',';
 		echo $row['month'] . ',';
 		echo $row['day'] . ',';
